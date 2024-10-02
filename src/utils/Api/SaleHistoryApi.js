@@ -2,7 +2,7 @@ import axios from "axios";
 
 const GetRecords = async (id) => {
 	try {
-		const response = await axios.get("/products", {
+		const response = await axios.get("/product-sales", {
 			params:{
 				id:id
 			}

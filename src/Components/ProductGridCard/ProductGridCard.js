@@ -10,7 +10,7 @@ function ProductGridCard({ id = 1, description, salePrice, category, image }) {
 			<p className={styles['product-grid-card-category']}>{category}</p>
 			<p className={styles['product-grid-card-sale-price']}>R{salePrice}</p>
 			<NavLink
-				to={`/product/${id}`}
+				to={`/products/${id}`}
 				className={`${styles['product-grid-card-button']} button`}
 			>
 				<span className={`${styles['product-grid-card-button-text']}`}>Sale History</span>
