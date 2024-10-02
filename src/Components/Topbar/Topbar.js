@@ -4,7 +4,11 @@ import styles from './Topbar.module.css'
 function Topbar() {
   return (
 	<div className={`${styles['topbar-container']}`}>
-		Topbar
+		<div className={styles["page-identity-container"]}>
+			<h2 className={styles["page-identity"]}>
+				Products
+			</h2>
+		</div>
 	</div>
   )
 }

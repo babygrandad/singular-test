@@ -1,7 +1,7 @@
 .searchbar-container{
-
 	display: flex;
 	justify-content: space-between;
+	flex-wrap: wrap-reverse;
 	padding: 1rem;
 	background-color: white;
 	margin: 1rem;
