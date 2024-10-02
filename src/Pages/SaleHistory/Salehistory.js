@@ -12,15 +12,18 @@ function Salehistory() {
 		const fetchProduct = async (id) => {
 			const products = await GetProducts();
 			setProduct(products.data.find(item => item.id === id));
+			console.log("Item :",product)
 		}
 
 		const fetchRecords = async (id) => {
-			setSaleRecords(await GetRecords(id));
+			const record = await GetRecords(id)
+			setSaleRecords(record.data);
+			console.log("Recods :",saleRecords)
 		}
 
 		fetchProduct(id);
 		fetchRecords(id);
-	})
+	}, [id]);
 
 	return (
 		<div>Salehistory</div>
