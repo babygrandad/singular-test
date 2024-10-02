@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import styles from './Salehistory.module.css';
 import { GetRecords } from '../../utils/Api/SaleHistoryApi';
 import { GetProducts } from '../../utils/Api/ProductsApi';
+import { Home } from '@mui/icons-material';
 
 function Salehistory() {
   const { id } = useParams();
@@ -15,7 +16,7 @@ function Salehistory() {
       setLoading(true);
       try {
         const products = await GetProducts();
-        const foundProduct = products.data.find(item => item.id == id); // Compare with "=="
+        const foundProduct = products.data.find(item => item.id === id); // Compare with "=="
         setProduct(foundProduct);
 
         const record = await GetRecords(id);
@@ -75,6 +76,11 @@ function Salehistory() {
           </tbody>
         </table>
       </div>
+      <NavLink 
+      to='/'
+      className={styles['back-to-home-button']}>
+        <Home />
+      </NavLink>
     </div>
   );
 }

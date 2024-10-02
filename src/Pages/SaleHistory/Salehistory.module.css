@@ -37,3 +37,9 @@
 	text-align: left;
 }
 
+.back-to-home-button{
+	color: rgb(103, 70, 54);
+	position: fixed;
+	top:90%;
+	left:90%;
+}
