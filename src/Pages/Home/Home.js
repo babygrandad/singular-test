@@ -1,5 +1,5 @@
 import React from 'react'
-import { Navigate , Outlet } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 import styles from './Home.module.css'
 import Topbar from '../../Components/Topbar/Topbar'
 

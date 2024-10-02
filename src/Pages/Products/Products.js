@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import styles from './Products.module.css';
 import ProductGridCard from '../../Components/ProductGridCard/ProductGridCard';
 import SkeletonGridCard from '../../Components/SkeletonGridCard/SkeletonGridCard';
+import { GetProducts } from '../../utils/Api/ProductsApi';
 
 function Products() {
   const [loading, setLoading] = useState(true);
@@ -10,14 +10,14 @@ function Products() {
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const response = await axios.get('/products'); // Ensure the URL is correct
-        setProducts(response.data); // Set products state with fetched data
-        setLoading(false); // Set loading to false once data is fetched
-      } catch (error) {
-        console.error('Error fetching data:', error);
-        setLoading(false); // Ensure loading is false even on error
+      setLoading(true);
+
+      const productData = await GetProducts();
+
+      if (productData) {
+        setProducts(productData.data);
       }
+      setLoading(false);
     };
 
     fetchData();
@@ -31,7 +31,6 @@ function Products() {
           <SkeletonGridCard key={index} />
         ))
       ) : (
-        // Map through products and display ProductGridCard for each
         products.map((product) => (
           <ProductGridCard
             key={product.id}
